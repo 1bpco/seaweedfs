@@ -35,13 +35,16 @@ src_unpack() {
 src_compile() {
     # Собираем основной бинарник weed
     # Флаг -o указывает, куда положить результат
-    ego build -o weed ./weed
+#    ego build -o weed ./weed
+    ego build -o weed-bin ./weed
 }
 
 # Функция установки
 src_install() {
     # Устанавливаем бинарник в /usr/bin
-    dobin weed
+#    dobin weed
+    # newbin <откуда> <как_назвать_в_системе>
+    newbin weed-bin weed
 
     # Если нужен FUSE, можно установить и его, но обычно он входит в weed
     # if use fuse; then
